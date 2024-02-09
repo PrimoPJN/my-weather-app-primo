@@ -34,7 +34,6 @@ export class UtilService {
     return Math.round( Number(value) );
   }
 
-
   formatForecastObject(fiveDayForecast: WeatherFromAPI[], city: string): Weather[] {
     const formatedForecast = [];
     for (let i = 4; i < fiveDayForecast.length; i += 8) {
