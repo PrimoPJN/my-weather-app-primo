@@ -10,9 +10,7 @@ export class HttpService {
   APP_KEY: string = `5cfa476d636f9e4cb33e1ea0a9ab58b4`;
   BASE_URL: string = `https://api.openweathermap.org/data/2.5`;
   
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) {}
 
   getWeather(city: string) {
     const url = `${this.BASE_URL}/weather?q=${city}&units=metric&appid=${this.APP_KEY}`;

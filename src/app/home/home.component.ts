@@ -31,18 +31,27 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.cities = [];
-    this.initCities = ['sao paulo', 'rio de janeiro', 'new york'];
+    this.initCities = this.utilService.getStoredCities();
+    
+    if (this.initCities == null || this.initCities.length == 0) {
+      this.initCities = ['sao paulo', 'rio de janeiro', 'new york'];
+    }
     this.getInitCityWeather();
   }
 
   getInitCityWeather() {
     this.initCities.map(city => {
-      this.addWeatherByCity(city);
+      this.showWeather(city);
     });
   }
 
   addWeatherByCity(city: string) {
-    console.log(city);
+    this.initCities.push(city);
+    this.utilService.setStoredCities(this.initCities);
+    this.showWeather(city);
+  }
+
+  showWeather(city: string){
     this.httpService.getWeather(city).subscribe(response => {
       const citydata = this.utilService.formatDataWeather(response, city);
       this.cities.push(citydata);

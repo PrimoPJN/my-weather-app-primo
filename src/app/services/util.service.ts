@@ -6,8 +6,18 @@ import { Weather } from '../models/weather.interface';
   providedIn: 'root'
 })
 export class UtilService {
-  constructor() { 
+  constructor() { }
 
+  setStoredCities(cities: string[]): void {
+    localStorage.setItem('cities', JSON.stringify(cities));
+  }
+
+  getStoredCities(): string[] {
+    const cities = localStorage.getItem('cities');
+    if (cities) 
+      return JSON.parse( cities );
+    else
+      return [];
   }
 
   formatDataWeather(data: any, city: string) {
