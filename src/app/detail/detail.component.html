@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <h2>Detail View</h2>
+    </div>
+
+    <div class="card text-center">
+      <div class="card-body">
+          <h5 class="card-title">5 Days Forecast - {{ detailWeather.name | uppercase }}</h5>
+          <hr>
+          <div class="d-flex justify-content-around margin-top-s">
+              <div *ngFor="let forecast of detailWeather.fiveDayForecast">
+                <h6>{{forecast.date}}</h6>
+                <img src="assets/images/{{forecast.icon | lowercase}}.png">
+                <div>{{forecast.forecast}}</div>
+                <div class="d-flex justify-content-around">
+                  <div class="temp">
+                      <div>{{forecast.tempLow}}&deg;C</div>
+                      <div>Low</div>
+                  </div>
+                  <div class="temp">
+                      <div>{{forecast.tempHigh}}&deg;C</div>
+                      <div>High</div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <br />
+    <button type="button" class="btn btn-secondary margin-top-s" routerLink="/home">Back</button>
+</div>

@@ -1,0 +1,10 @@
+.card {
+    margin: 2px;
+    width: 340px;
+}
+
+.listCities {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
