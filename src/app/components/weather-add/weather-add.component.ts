@@ -8,11 +8,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class WeatherAddComponent {
   form!: FormGroup;
-  @Output() citySearch: EventEmitter<string> = new EventEmitter<string>();
+  @Output() onAddCity: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private fb: FormBuilder) {
       this.form = this.fb.group({
-        txtCity: ['', [
+        txtCityName: ['', [
           Validators.required, 
           Validators.maxLength(20),
           Validators.pattern('[a-z]')
@@ -22,6 +22,7 @@ export class WeatherAddComponent {
   }
 
   addCity(city: string) {
-    this.citySearch.emit(city);
+    this.onAddCity.emit(city);
+    this.form.controls['txtCityName'].setValue("");
   }
 }

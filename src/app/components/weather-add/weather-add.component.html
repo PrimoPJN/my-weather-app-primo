@@ -4,10 +4,14 @@
          
         <div class="card-body" [formGroup]="form">
             <input type="text" class="form-control"
-                formControlName="txtCity"
-                aria-label="search-by-zip-input"
+                formControlName="txtCityName"
                 placeholder="Please enter city name" />
-            <button type="button" class="btn btn-outline-primary" (click)="addCity(form.value.txtCity)">ADD</button>
+        </div>
+
+        <div class="card-footer">
+            <button type="button" class="btn btn-outline-primary" (click)="addCity(form.value.txtCityName)">
+                ADD
+            </button>
         </div>
     </div>
 </div>

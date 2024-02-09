@@ -1,10 +1,10 @@
-<div>
+<div class="content">
     <div class="listCities">   
         <div *ngFor="let city of cities;" >
             <app-weather [city]="city"></app-weather>
         </div>
      
-        <app-weather-add (citySearch)="addWeatherByCity($event)"></app-weather-add>
+        <app-weather-add (onAddCity)="addWeatherByCity($event)"></app-weather-add>
     </div>
        
     <div class="row">
